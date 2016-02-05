@@ -1,0 +1,4 @@
+.vagrant
+sources
+*.cmd
+*.log

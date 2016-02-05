@@ -1,0 +1,58 @@
+#######################################################################################################################
+# 
+# GNU Screen Configuration
+# 
+
+
+
+# Enables UTF8 support
+defutf8 on
+
+# Disables the presentation page
+startup_message off
+
+# Disables flashing of the screen when the shell rings the terminal bell (e.g. when performing autocompletion which 
+# would return lots of possibilities)
+vbell off
+
+# Configures status bar at the bottom of the screen
+hardstatus alwayslastline
+hardstatus string "%-w%{= BW} %n %t %{-}%+w"
+
+# Bumps up the size of the scrollback buffer
+defscrollback 20000
+
+# Defines a shortcut to clear the screen and the scrollback buffer in one shot
+bind _ eval "clear" "scrollback 0" "scrollback 20000"
+
+# Tells screen to use the terminal emulator buffer to enable scrollbars
+termcapinfo xterm ti@:te@
+
+# Defines CTRL-z as the escape combination instead of CTRL-a which is quite useful to go to the beginning of a line in a
+# shell or in vim. The original CTRL-z binding is accessible through 'CTRL-z + a'.
+escape ^za
+
+# Makes sure windows numbering starts at zero to match the keyboard layout
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10
+
+# Maps some keyboard shortcuts
+bindkey -k k9 clear  # F9 = clear window
+bindkey -k k; detach # F10 = detach screen
+bindkey -k F1 prev   # F11 = go to previous window
+bindkey -k F2 next   # F12 = go to next window
+
+# Forces screen to use a login shell and loads the .profile
+shell -${SHELL}
+
+# Makes sure previous output is not overwritten when using tools like 'less'
+altscreen on
+
+# Launchs the following windows at startup (the last being selected by default)
+chdir /var/sources
+screen -t tests 3 -bash
+
+screen -t server 2 -bash
+
+screen -t sources 1 -bash
