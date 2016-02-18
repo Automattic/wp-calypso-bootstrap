@@ -32,7 +32,7 @@ Installing Calypso is very easy - just load a terminal or console and:
 On Linux, it will probably look like this:
 
 ```
-$ git clone git@github.com:Automattic/wp-calypso-bootstrap.git
+$ git clone https://github.com/Automattic/wp-calypso-bootstrap.git
 $ cd wp-calypso-bootstrap
 $ vagrant up
 ```
@@ -40,7 +40,7 @@ $ vagrant up
 On Windows, it's going to be very similar:
 
 ```
-C:\>git clone git@github.com:Automattic/wp-calypso-bootstrap.git
+C:\>git clone https://github.com/Automattic/wp-calypso-bootstrap.git
 C:\>cd wp-calypso-bootstrap
 C:\wp-calypso-bootstrap>vagrant up
 ```
