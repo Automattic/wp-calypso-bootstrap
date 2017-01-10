@@ -10,13 +10,13 @@ You need to have the following things:
 
 **For Windows users only:**
 
-1. Download and install [MinGW]((https://sourceforge.net/projects/mingw/files/latest/download))
+1. Download and install [MinGW](https://sourceforge.net/projects/mingw/files/latest/download)
 2. Start the MinGW Installation Manager
 3. Install `rsync` & `openssh` under `MSYS` section
 4. Add `PATH=/c/MinGW/msys/1.0/bin:$PATH` to your `.bash_profile` file used by Git Bash
 5. Reload your profile with `source ~/.bash_profile`
 
-**Note:** The last line will replace your SSH because Vagrant's rsync won't work with SSH that comes with Git Bash. See mitchellh/vagrant#6702 for more details.
+**Note:** The last line will replace your SSH because Vagrant's rsync won't work with SSH that comes with Git Bash. See [mitchellh/vagrant#6702](https://github.com/mitchellh/vagrant/issues/6702) for more details.
 
 ### Setup
 
