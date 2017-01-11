@@ -13,6 +13,7 @@ alias mt="make test"
 # Git aliases
 alias gb="git branch"
 alias gc="git checkout"
+alias gcp="git cherry-pick"
 alias gd="git diff"
 alias gf="git fetch"
 alias gl="git log --abbrev-commit --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
