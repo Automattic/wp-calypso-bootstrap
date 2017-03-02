@@ -4,8 +4,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.define "wp-calypso-1.1" do |node|
-    node.vm.box = "ubuntu/wily64"
+  config.vm.define "wp-calypso-1.2" do |node|
+    node.vm.box = "bento/ubuntu-16.04"
     node.vm.host_name = "calypso.automattic.com"
     
     node.vm.network :forwarded_port, guest: 3000, host: 3000
@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
   
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "Calypso Bootstrap 1.1"
+    vb.name = "Calypso Bootstrap 1.2"
     vb.cpus = 1
     vb.memory = 2048
     
@@ -35,8 +35,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "puppet/scripts/setup.sh"
   
   config.vm.provision "puppet" do |puppet|
-    puppet.manifests_path = "puppet/manifests"
-    puppet.module_path = "puppet/modules"
+    puppet.environment = "production"
+    puppet.environment_path = "puppet"
   end
   
   config.vm.post_up_message = "             _

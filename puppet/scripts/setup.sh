@@ -41,21 +41,33 @@ function is_module_installed() {
 
 ## Shell ##############################################################################################################
 
-module_list=$(puppet module list)
+info "Installing Puppet"
 
-for module in puppetlabs-apt puppetlabs-stdlib puppetlabs-vcsrepo
-do
-  is_module_installed $module "$module_list"
+apt-get install --assume-yes --quiet puppet
 
-  if [[ $? -eq $FALSE ]]; then
-    sudo puppet module install $module --debug
+if [[ $? -eq $TRUE ]]; then
+  info "Puppet installed successfully"
+  
+  module_list=$(puppet module list)
 
-    if [[ $? -eq $TRUE ]]; then
-      info "Puppet module '$module' installed successfully"
+  for module in puppetlabs-apt puppetlabs-stdlib puppetlabs-vcsrepo
+  do
+    is_module_installed $module "$module_list"
+
+    if [[ $? -eq $FALSE ]]; then
+      info "Installing Puppet module '$module'"
+      
+      puppet module install $module
+
+      if [[ $? -eq $TRUE ]]; then
+        info "Puppet module '$module' installed successfully"
+      else
+        error "Unable to install Puppet module '$module'"
+      fi
     else
-      error "Unable to install Puppet module '$module'"
+      info "Puppet module '$module' already installed"
     fi
-  else
-    info "Puppet module '$module' already installed"
-  fi
-done
+  done  
+else
+  error "Unable to install Puppet"
+fi
