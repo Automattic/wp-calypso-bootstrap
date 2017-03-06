@@ -13,7 +13,7 @@ class motd {
   file { "/etc/update-motd.d/00-header":
     ensure => present,
     source => "puppet:///modules/motd/00-header",
-    mode   => 0755,
+    mode   => "0755",
     owner  => "root",
     group  => "root",
     notify => Exec["generate motd"]

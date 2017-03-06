@@ -15,10 +15,22 @@ class system {
     command => "/usr/bin/apt-get update",
     require => Apt::Source["nodejs"]
   }
+  
+  # Fixes a circular dependency issue (http://unix.stackexchange.com/a/202990)
+  exec { "remove-keyboard-configuration":
+    command => "/usr/bin/apt-get remove --assume-yes keyboard-configuration",
+    require => Exec["update"]
+  }
+  
+  exec { "install-keyboard-configuration":
+    command => "/usr/bin/apt-get install --assume-yes keyboard-configuration",
+    require => Exec["remove-keyboard-configuration"]
+  }
 
   exec { "upgrade":
     command => "/usr/bin/apt-get upgrade --assume-yes",
     path    => ["/bin/", "/sbin/", "/usr/bin/", "/usr/sbin/"],
-    require => Exec["update"]
+    require => Exec["install-keyboard-configuration"],
+    timeout => 0
   }
 }

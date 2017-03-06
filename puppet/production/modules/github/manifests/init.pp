@@ -1,6 +1,6 @@
 class github {
-  require known_hosts
-  require ssh_keys
+  require github::known_hosts
+  require github::ssh_keys
 
   package { "git":
     ensure => latest
