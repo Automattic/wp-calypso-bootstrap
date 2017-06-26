@@ -50,7 +50,23 @@ if [[ $? -eq $TRUE ]]; then
   
   module_list=$(puppet module list)
 
-  for module in puppetlabs-apt puppetlabs-stdlib puppetlabs-vcsrepo
+  is_module_installed puppetlabs-apt "$module_list"
+
+  if [[ $? -eq $FALSE ]]; then
+    info "Installing Puppet module 'puppetlabs-apt'"
+
+    puppet module install puppetlabs-apt --version 2.4.0
+
+    if [[ $? -eq $TRUE ]]; then
+      info "Puppet module 'puppetlabs-apt' installed successfully"
+    else
+      error "Unable to install Puppet module 'puppetlabs-apt'"
+    fi
+  else
+    info "Puppet module 'puppetlabs-apt' already installed"
+  fi
+
+  for module in puppetlabs-stdlib puppetlabs-vcsrepo
   do
     is_module_installed $module "$module_list"
 
@@ -67,7 +83,7 @@ if [[ $? -eq $TRUE ]]; then
     else
       info "Puppet module '$module' already installed"
     fi
-  done  
+  done
 else
   error "Unable to install Puppet"
 fi
