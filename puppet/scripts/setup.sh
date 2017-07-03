@@ -47,7 +47,7 @@ apt-get install --assume-yes --quiet puppet
 
 if [[ $? -eq $TRUE ]]; then
   info "Puppet installed successfully"
-  
+
   module_list=$(puppet module list)
 
   is_module_installed puppetlabs-apt "$module_list"
@@ -66,13 +66,13 @@ if [[ $? -eq $TRUE ]]; then
     info "Puppet module 'puppetlabs-apt' already installed"
   fi
 
-  for module in puppetlabs-stdlib puppetlabs-vcsrepo
+  for module in puppetlabs-vcsrepo
   do
     is_module_installed $module "$module_list"
 
     if [[ $? -eq $FALSE ]]; then
       info "Installing Puppet module '$module'"
-      
+
       puppet module install $module
 
       if [[ $? -eq $TRUE ]]; then
