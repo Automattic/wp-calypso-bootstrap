@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.host_name = "calypso.automattic.com"
     
     node.vm.network :forwarded_port, guest: 3000, host: 3000
+    node.vm.network :forwarded_port, guest: 9898, host: 9898
   end
   
   # Fixes a 'stdin: is not a tty' error (see http://bit.ly/1nokaAw)
