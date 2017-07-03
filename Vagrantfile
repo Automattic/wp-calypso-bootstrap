@@ -28,7 +28,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "--clipboard", "bidirectional",
       "--description", "Virtual machine to develop with WordPress.com Calypso.",
       "--natdnshostresolver1", "on",
-      "--natdnsproxy1", "on"
+      "--natdnsproxy1", "on",
+      "--cableconnected1", "on"
     ]
   end
   
