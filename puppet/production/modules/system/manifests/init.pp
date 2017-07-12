@@ -7,7 +7,7 @@ class system {
       server => "keyserver.ubuntu.com"
     },
     location => "https://deb.nodesource.com/node_6.x",
-    release => "precise",
+    release => "xenial",
     repos => "main"
   }
   
