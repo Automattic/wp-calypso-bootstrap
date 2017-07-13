@@ -20,8 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.provider "virtualbox" do |vb|
     vb.name = "Calypso Bootstrap 1.2"
-    vb.cpus = 1
-    vb.memory = 2048
+    vb.cpus = 2
+    vb.memory = 4096
     
     vb.customize [
       "modifyvm", :id,
