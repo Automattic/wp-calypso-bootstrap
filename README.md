@@ -91,7 +91,7 @@ vagrant@calypso:~$ cd /var/sources
 And start the application with:
 
 ```
-vagrant@calypso:/var/sources$ make run
+vagrant@calypso:/var/sources$ npm start
 ```
 
 This will build Calypso, which can be a lengthy process the first time it is run because that will download all dependencies. Hopefully at some point you'll see:
