@@ -39,4 +39,9 @@ class system {
     line   => "fs.inotify.max_user_watches=16384",
     path   => "/etc/sysctl.conf"
   }
+  
+  exec { "make new file watcher system limit effective":
+    command => "/sbin/sysctl -p",
+    require => File_line["increase file watcher system limit"]
+  }
 }
