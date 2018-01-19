@@ -41,6 +41,10 @@ function is_module_installed() {
 
 ## Shell ##############################################################################################################
 
+info "Updating packages list"
+
+apt-get update
+
 info "Installing Puppet"
 
 apt-get install --assume-yes --quiet puppet
