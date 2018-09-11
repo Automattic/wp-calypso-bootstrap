@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Displays the following text banner generated with 'figlet -c -w 40 "calypso"'. The output of this command was first 
+# Displays the following text banner generated with 'figlet -c -w 40 "calypso"'. The output of this command was first
 # pasted below and then any backquote (anywhere) and backslash (located at the end of a line) was escaped with slashes.
 echo "             _
     ___ __ _| |_   _ _ __  ___  ___

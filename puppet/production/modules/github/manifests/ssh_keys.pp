@@ -5,7 +5,7 @@ class github::ssh_keys {
     owner  => "root",
     group  => "root"
   }
-  
+
   # Copies the private deploy key of the GitHub Calypso repository on the guest system
   file { "/root/.ssh/id_rsa":
     ensure  => present,
