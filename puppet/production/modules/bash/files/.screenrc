@@ -1,7 +1,7 @@
 #######################################################################################################################
-# 
+#
 # GNU Screen Configuration
-# 
+#
 
 
 
@@ -11,7 +11,7 @@ defutf8 on
 # Disables the presentation page
 startup_message off
 
-# Disables flashing of the screen when the shell rings the terminal bell (e.g. when performing autocompletion which 
+# Disables flashing of the screen when the shell rings the terminal bell (e.g. when performing autocompletion which
 # would return lots of possibilities)
 vbell off
 

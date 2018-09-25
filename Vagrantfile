@@ -4,25 +4,22 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.define "wp-calypso-1.4" do |node|
-    node.vm.box = "bento/ubuntu-16.04"
+  config.vm.define "wp-calypso-1.5" do |node|
+    node.vm.box = "bento/ubuntu-18.04"
     node.vm.host_name = "calypso.automattic.com"
-    
+
     node.vm.network :forwarded_port, guest: 3000, host: 3000
     node.vm.network :forwarded_port, guest: 9898, host: 9898
   end
-  
-  # Fixes a 'stdin: is not a tty' error (see http://bit.ly/1nokaAw)
-  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
-  
+
   # Disables default synced folders
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  
+
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "Calypso Bootstrap 1.4"
+    vb.name = "Calypso Bootstrap 1.5"
     vb.cpus = 2
     vb.memory = 4096
-    
+
     vb.customize [
       "modifyvm", :id,
       "--clipboard", "bidirectional",
@@ -32,15 +29,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "--cableconnected1", "on"
     ]
   end
-  
+
   # Installs the latest versions of Puppet third-party modules
   config.vm.provision "shell", path: "puppet/scripts/setup.sh"
-  
+
   config.vm.provision "puppet" do |puppet|
     puppet.environment = "production"
     puppet.environment_path = "puppet"
   end
-  
+
   config.vm.post_up_message = "             _
     ___ __ _| |_   _ _ __  ___  ___
    / __/ _` | | | | | '_ \\/ __|/ _ \\
