@@ -12,3 +12,4 @@ include motd
 include nodejs
 include system
 include unison
+include yarn

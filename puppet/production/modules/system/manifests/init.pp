@@ -9,9 +9,19 @@ class system {
     location => "https://deb.nodesource.com/node_12.x"
   }
 
+  apt::source { "yarn":
+    key => {
+      id => "72ECF46A56B4AD39C907BBB71646B01B86E50310",
+      source => "https://dl.yarnpkg.com/debian/pubkey.gpg"
+    },
+    location => "https://dl.yarnpkg.com/debian/",
+    release  => "stable",
+    repos    => "main"
+  }
+
   exec { "update system":
     command => "/usr/bin/apt-get update",
-    require => Apt::Source["nodejs"]
+    require => [Apt::Source["nodejs"], Apt::Source["yarn"]]
   }
 
   exec { "upgrade system":
