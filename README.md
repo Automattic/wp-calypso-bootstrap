@@ -49,7 +49,7 @@ Note this installation process **can take quite some time** the first time you p
 
 1. Download an image of the current stable version of Ubuntu
 2. Load it into the virtual machine and update it
-3. Install all necessary packages such as Git, Node.js, or NPM
+3. Install all necessary packages such as Git, Node.js, or Yarn
 4. Download the Calypso repository
 
 Finally, just add `127.0.0.1 calypso.localhost` to your `hosts` file.
@@ -88,13 +88,19 @@ Now simply head to the Calypso directory:
 vagrant@calypso:~$ cd /var/sources
 ```
 
-And start the application with:
+And install dependencies with:
 
 ```
-vagrant@calypso:/var/sources$ npm start
+vagrant@calypso:/var/sources$ yarn
 ```
 
-This will build Calypso, which can be a lengthy process the first time it is run because that will download all dependencies. Hopefully at some point you'll see:
+Start the application with:
+
+```
+vagrant@calypso:/var/sources$ yarn start
+```
+
+This will build Calypso, which can be a lengthy process. Hopefully at some point you'll see:
 
 ```
 Ready! You can load http://calypso.localhost:3000/ now. Have fun!
