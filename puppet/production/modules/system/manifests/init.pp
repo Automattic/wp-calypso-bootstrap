@@ -33,7 +33,7 @@ class system {
 
   file_line { "increase file watcher system limit":
     ensure => present,
-    line   => "fs.inotify.max_user_watches=25000",
+    line   => "fs.inotify.max_user_watches=30000",
     path   => "/etc/sysctl.conf"
   }
 
