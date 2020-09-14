@@ -41,4 +41,16 @@ class system {
     command => "/sbin/sysctl -p",
     require => File_line["increase file watcher system limit"]
   }
+
+  file_line { "disable Chrome driver download":
+    ensure => present,
+    line   => "CHROMEDRIVER_SKIP_DOWNLOAD=true",
+    path   => "/etc/environment"
+  }
+
+  file_line { "disable Puppeteer download":
+    ensure => present,
+    line   => "PUPPETEER_SKIP_DOWNLOAD=true",
+    path   => "/etc/environment"
+  }
 }
