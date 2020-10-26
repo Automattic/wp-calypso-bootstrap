@@ -4,8 +4,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.define "wp-calypso-1.7" do |node|
-    node.vm.box = "bento/ubuntu-18.04"
+  config.vm.define "wp-calypso-1.8" do |node|
+    node.vm.box = "bento/ubuntu-20.04"
     node.vm.host_name = "calypso.automattic.com"
 
     node.vm.network :forwarded_port, guest: 3000, host: 3000
@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "Calypso Bootstrap 1.7"
+    vb.name = "Calypso Bootstrap 1.8"
     vb.cpus = 2
     vb.memory = 4096
 
