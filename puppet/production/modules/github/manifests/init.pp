@@ -9,7 +9,7 @@ class github {
   vcsrepo { "/var/sources":
     ensure   => present,
     provider => git,
-    revision => "master",
+    revision => "trunk",
     source   => "git@github.com:Automattic/wp-calypso.git",
     owner    => "vagrant",
     group    => "vagrant",
