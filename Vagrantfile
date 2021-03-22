@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     vb.customize [
       "modifyvm", :id,
-      "--clipboard-mode", "bidirectional",
+      "--clipboard", "bidirectional",
       "--description", "Virtual machine to develop with WordPress.com Calypso.",
       "--natdnshostresolver1", "on",
       "--natdnsproxy1", "on",
