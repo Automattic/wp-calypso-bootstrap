@@ -48,6 +48,12 @@ class system {
     path   => "/etc/environment"
   }
 
+  file_line { "disable Playwright download":
+    ensure => present,
+    line   => "PLAYWRIGHT_SKIP_DOWNLOAD=true",
+    path   => "/etc/environment"
+  }
+
   file_line { "disable Puppeteer download":
     ensure => present,
     line   => "PUPPETEER_SKIP_DOWNLOAD=true",
