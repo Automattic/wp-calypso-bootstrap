@@ -4,12 +4,12 @@ alias l="ls --almost-all --group-directories-first -l --time-style=long-iso"
 
 # Calypso aliases
 alias cds="cd /var/sources"
-alias nc="yarn clean"
-alias ndc="yarn distclean"
-alias ns="yarn start"
-alias nl="yarn lint"
-alias nlb="yarn eslint-branch"
-alias nt="yarn test"
+alias yc="yarn clean"
+alias ydc="yarn run distclean"
+alias ys="yarn start"
+alias yl="yarn lint"
+alias ylb="yarn run eslint-branch"
+alias yt="yarn test"
 
 # Git aliases
 alias gb="git branch"
