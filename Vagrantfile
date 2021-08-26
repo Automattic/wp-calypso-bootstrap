@@ -22,11 +22,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     vb.customize [
       "modifyvm", :id,
+      "--cableconnected1", "on",
       "--clipboard", "bidirectional",
       "--description", "Virtual machine to develop with WordPress.com Calypso.",
+      "--graphicscontroller", "vmsvga",
       "--natdnshostresolver1", "on",
       "--natdnsproxy1", "on",
-      "--cableconnected1", "on"
+      "--vram", "16",
+      "--vrde", "off",
     ]
   end
 
