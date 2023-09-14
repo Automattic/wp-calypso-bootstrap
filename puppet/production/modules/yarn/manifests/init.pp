@@ -13,7 +13,7 @@ class yarn {
 
   file_line { "increase Node memory limit":
     ensure => present,
-    line   => "NODE_OPTIONS=--max-old-space-size=3000",
+    line   => "NODE_OPTIONS=--max-old-space-size=11000",
     path   => "/etc/environment"
   }
 }
