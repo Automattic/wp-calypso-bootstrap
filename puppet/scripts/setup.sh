@@ -54,7 +54,7 @@ if [[ $? -eq $TRUE ]]; then
 
   module_list=$(puppet module list)
 
-  for module in puppetlabs-apt puppetlabs-vcsrepo
+  for module in puppetlabs-apt puppetlabs-sshkeys_core puppetlabs-vcsrepo
   do
     is_module_installed $module "$module_list"
 
