@@ -114,6 +114,8 @@ The Calypso repository is located in `/var/sources` on the sandbox. **This isn't
 
 With Calypso Bootstrap you can either work from the virtual machine itself or from your computer. In the former case, you would edit files in the `/var/sources` folder directly. In the latter, you would have to clone the Calypso repository to your computer and edit files there using your favorite editing tools. You would then have to sync this repository with the one on the sandbox in `/var/sources` using a tool such as [rsync](https://en.wikipedia.org/wiki/Rsync) or [unison](http://www.cis.upenn.edu/~bcpierce/unison/). In both cases, Calypso will pick up the changes, potentially rebuild some files, and serve them when you reload a page in your browser.
 
+* [Setup with Rsync](https://github.com/Automattic/wp-calypso-bootstrap/blob/master/RSYNC.md)
+
 ### Relaxing
 
 You can shutdown the virtual machine with `vagrant halt` and start it again with `vagrant up`. You can also pause it with `vagrant suspend` and unpause it with `vagrant resume`.
