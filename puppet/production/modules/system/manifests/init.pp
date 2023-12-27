@@ -6,7 +6,7 @@ class system {
       id => "9FD3B784BC1C6FC31A8A0A1C1655A0AB68576280",
       server => "hkp://keyserver.ubuntu.com:80"
     },
-    location => "https://deb.nodesource.com/node_18.x"
+    location => "https://deb.nodesource.com/node_20.x"
   }
 
   apt::source { "yarn":
@@ -42,21 +42,9 @@ class system {
     require => File_line["increase file watcher system limit"]
   }
 
-  file_line { "disable Chrome driver download":
-    ensure => present,
-    line   => "CHROMEDRIVER_SKIP_DOWNLOAD=true",
-    path   => "/etc/environment"
-  }
-
   file_line { "disable Playwright download":
     ensure => present,
     line   => "PLAYWRIGHT_SKIP_DOWNLOAD=true",
-    path   => "/etc/environment"
-  }
-
-  file_line { "disable Puppeteer download":
-    ensure => present,
-    line   => "PUPPETEER_SKIP_DOWNLOAD=true",
     path   => "/etc/environment"
   }
 }
