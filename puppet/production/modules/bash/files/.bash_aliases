@@ -19,7 +19,7 @@ alias gd="git diff"
 alias gf="git fetch"
 alias gl="git log --abbrev-commit --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'"
 alias gp="git pull -p"
-alias gr="git diff --name-only master"
+alias gr="git restore"
 alias gs="git status"
 
 # Gnu Screen aliases

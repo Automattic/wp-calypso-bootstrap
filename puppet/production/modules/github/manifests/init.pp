@@ -1,6 +1,5 @@
 class github {
   require github::known_hosts
-  require github::ssh_keys
 
   package { "git":
     ensure => latest
@@ -10,7 +9,7 @@ class github {
     ensure   => present,
     provider => git,
     revision => "trunk",
-    source   => "git@github.com:Automattic/wp-calypso.git",
+    source   => "https://github.com/Automattic/wp-calypso.git",
     owner    => "vagrant",
     group    => "vagrant",
     require  => Package["git"]

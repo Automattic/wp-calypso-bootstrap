@@ -1,7 +1,10 @@
+
 Calypso Bootstrap
 =================
 
-Calypso Bootstrap is a **portable development environment** for [Calypso](https://github.com/Automattic/wp-calypso/), the new face of [WordPress.com](http://wordpress.com). It allows you to install, configure, and start a virtual machine that is ready to run Calypso - with a single command. This sandbox makes it very easy to learn about, test, and hack Calypso without messing with the configuration of your computer. It uses some cool technologies such as [Vagrant](http://www.vagrantup.com/), [Puppet](https://puppetlabs.com/puppet/what-is-puppet), and [VirtualBox](http://virtualbox.org/) under the hood.
+Calypso Bootstrap is a **portable development environment** for [Calypso](https://github.com/Automattic/wp-calypso/), the powerful administration interface of [WordPress.com](http://wordpress.com). It allows you to install, configure, and start a virtual machine that is ready to run Calypso - with a single command. This sandbox makes it very easy to learn about, test, and hack Calypso without messing with the configuration of your computer. It uses some cool technologies such as [Vagrant](http://www.vagrantup.com/), [Puppet](https://puppetlabs.com/puppet/what-is-puppet), and [VirtualBox](http://virtualbox.org/) under the hood.
+
+> Check out [Calypso Bootstrap (WSL)](https://github.com/Automattic/wp-calypso-bootstrap-wsl) if you specifically want to run Calypso on Windows, as it has better performance.
 
 ### Prerequisites
 
@@ -110,9 +113,9 @@ You should now be able to access Calypso in your browser at http://calypso.local
 
 ### Hacking
 
-The Calypso repository is located in `/var/sources` on the sandbox. **This isn't a shared folder** (i.e. a directory that is shared between the virtual machine - the guest system - and your own computer - the host system). This was done for performance reason as well as to work around a number of limitations (most of them originating from running Windows as host system).
+The Calypso repository is located in `/var/sources` on the virtual machine. **This isn't a shared folder**, i.e. a directory that is shared between the virtual machine (the guest system) and your own computer (the host system). This was done for performance reason as well as to work around a number of limitations (most of them originating from running Windows as host system).
 
-With Calypso Bootstrap you can either work from the virtual machine itself or from your computer. In the former case, you would edit files in the `/var/sources` folder directly. In the latter, you would have to clone the Calypso repository to your computer and edit files there using your favorite editing tools. You would then have to sync this repository with the one on the sandbox in `/var/sources` using a tool such as [rsync](https://en.wikipedia.org/wiki/Rsync) or [unison](http://www.cis.upenn.edu/~bcpierce/unison/). In both cases, Calypso will pick up the changes, potentially rebuild some files, and serve them when you reload a page in your browser.
+With Calypso Bootstrap you can either work from the virtual machine itself or from your computer. In the former case, you would edit files in the `/var/sources` folder directly. In the latter, you would have to sync this folder to your computer using a tool such as [rsync](https://en.wikipedia.org/wiki/Rsync) or [unison](http://www.cis.upenn.edu/~bcpierce/unison/) (which is installed by default). From there, you would be able to edit files using your favorite code editor.
 
 ### Relaxing
 
@@ -122,7 +125,7 @@ Good job, you deserve a cup of coffee now!
 
 ### Troubleshooting
 
-If you encounter any issues, check the Calypso [readme file](https://github.com/Automattic/wp-calypso/blob/master/README.md) and the [documentation](https://github.com/Automattic/wp-calypso/tree/master/docs). If you're still stuck, [we're here to help](https://github.com/Automattic/wp-calypso/blob/master/CONTRIBUTING.md#were-here-to-help).
+If you encounter any issues, check Calypso's [readme](https://github.com/Automattic/wp-calypso/blob/trunk/README.md) and [documentation](https://github.com/Automattic/wp-calypso/tree/trunk/docs). If you're still stuck, [we're here to help](https://github.com/Automattic/wp-calypso/blob/trunk/docs/CONTRIBUTING.md#were-here-to-help).
 
 ### License
 
